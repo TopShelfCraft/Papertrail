@@ -57,7 +57,7 @@ class PapertrailPlugin extends BasePlugin
 	 */
 	public function getDocumentationUrl()
 	{
-		return false;
+		return 'https://github.com/TopShelfCraft/Papertrail';
 	}
 
 
@@ -90,7 +90,7 @@ class PapertrailPlugin extends BasePlugin
 	 */
 	public function getReleaseFeedUrl()
 	{
-		return false;
+		return "https://github.com/TopShelfCraft/Papertrail/raw/master/releases.json";
 	}
 
 

@@ -1,0 +1,10 @@
+[
+  {
+    "version": "1.0.0",
+    "downloadUrl": "https://github.com/TopShelfCraft/Papertrail/archive/1.0.0.zip",
+    "date": "2016-02-19T15:45:00",
+    "notes": [
+      "[Added] The Papertrail plugin allows you to send log events from your custom components to Papertrail's log aggregation app for easy monitoring, searching, and debugging."
+    ]
+  }
+]
