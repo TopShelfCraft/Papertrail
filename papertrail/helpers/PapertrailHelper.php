@@ -45,6 +45,11 @@ class PapertrailHelper
 		$system = !empty($system) ? $system : CRAFT_ENVIRONMENT;
 		$severity = isset(self::$_severityCodes[$level]) ? self::$_severityCodes[$level] : self::$_severityCodes['informational'];
 
+		if (self::ignore_severity($severity))
+		{
+			return;
+		}
+
 		if (!is_string($msg))
 		{
 			$msg = print_r($msg, true);
@@ -114,6 +119,13 @@ class PapertrailHelper
 		return $sent;
 
 	}
-
-
+	/**
+	 * @param  int $severity
+	 * @return boolean
+	 */
+	private function ignore_severity($severity)
+	{
+		$maxSeverity = craft()->config->get('maxSeverity', 'papertrail');
+		return (intval($severity) >= intval($maxSeverity));
+	}
 }
