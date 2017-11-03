@@ -14,10 +14,11 @@
 
 return array(
 
-	'papertrailHost' => false,
-	'papertrailPort' => false,
-
+	'papertrailHost' => false, // e.g. logN.papertrailapp.com
+	'papertrailPort' => false, // e.g. 123456
 	'appendLevel' => false,
 	'prependLevel' => true,
+	'enableLogRoute' => false, // enable automatic logging of Craft errors to papertrail, not just template errors
+	'maxSeverity' => 7, // Don't log errors with a severity higher than this
 
 );

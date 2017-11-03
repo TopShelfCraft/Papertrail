@@ -68,7 +68,7 @@ class PapertrailPlugin extends BasePlugin
 	 */
 	public function getVersion()
 	{
-		return '1.0.0';
+		return '1.1.0';
 	}
 
 
@@ -112,6 +112,20 @@ class PapertrailPlugin extends BasePlugin
 	public function onBeforeInstall()
 	{
 		return true;
+	}
+
+	/**
+	 * @throws \Exception
+	 */
+	public function init()
+	{
+		if (craft()->config->get('enableLogRoute', 'papertrail') === true) {
+			// Help the Yii autoloader to find the file
+			\Yii::$classMap['Craft\PapertrailRoute'] = realpath(__DIR__) . '/logroutes/PapertrailRoute.php';
+
+			// Add PapertrailRoute logger class
+			craft()->log->addRoute('Craft\PapertrailRoute');
+		}
 	}
 
 
